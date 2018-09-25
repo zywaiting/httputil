@@ -32,16 +32,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created on 2018/9/25.<br/>
- * HTTP工具类，支持HTTP和HTTPS同步调用。
- * 重载方法get、post方法微HTTP调用；
- * 重载方法gets、posts方法微HTTPS调用；
- * HEAD
- *
- * @author zy
- * @version 1.0
- */
+///**
+// * Created on 2018/9/25.<br/>
+// * HTTP工具类，支持HTTP和HTTPS同步调用。
+// * 重载方法get、post方法微HTTP调用；
+// * 重载方法gets、posts方法微HTTPS调用；
+// * HEAD
+// *
+// * @author zy
+// * @version 1.0
+// */
 public abstract class HttpUtils {
     private static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
     public final static CloseableHttpClient httpsClient = initHttpsClient();
@@ -431,14 +431,14 @@ public abstract class HttpUtils {
 
 
 
-    /**
-     * 发送HTTP GET请求
-     *
-     * @param url 请求地址
-     * @param headers 请求头
-     * @param args 参数
-     * @return 请求后返回的数据
-     */
+//    /**
+//     * 发送HTTP GET请求
+//     *
+//     * @param url 请求地址
+//     * @param headers 请求头
+//     * @param args 参数
+//     * @return 请求后返回的数据
+//     */
     public static String getsHeader(String url, String encoding, KeyValue[] headers, KeyValue... args) {
         String serialize = serialize(args);
         String urlArgs = appendToUrl(url, serialize);
@@ -449,14 +449,14 @@ public abstract class HttpUtils {
         return execute(httpsClient, httpGet,encoding);
     }
 
-    /**
-     * 发送HTTP GET请求
-     *
-     * @param url 请求地址
-     * @param headers 请求头
-     * @param args 参数
-     * @return 请求后返回的数据
-     */
+//    /**
+//     * 发送HTTP GET请求
+//     *
+//     * @param url 请求地址
+//     * @param headers 请求头
+//     * @param args 参数
+//     * @return 请求后返回的数据
+//     */
     public static String getsHeader(String url, String encoding, Map<String, String> headers, Map<String, String> args) {
         String serialize = serialize(args);
         String urlArgs = appendToUrl(url, serialize);
@@ -553,13 +553,13 @@ public abstract class HttpUtils {
         return execute(httpsClient, httpPost);
     }
 
-    /**
-     * 发送HTTPS POST请求
-     *
-     * @param url  请求地址
-     * @param args POST请求传递的参数
-     * @return 响应结果
-     */
+//    /**
+//     * 发送HTTPS POST请求
+//     *
+//     * @param url  请求地址
+//     * @param args POST请求传递的参数
+//     * @return 响应结果
+//     */
     public static String posts(String url,String encoding, Map<String, String> args) {
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(adapter(args));
@@ -902,13 +902,13 @@ public abstract class HttpUtils {
         return execute(httpClient, httpPost);
     }
 
-    /**
-     * 发送HTTPS POST请求
-     *
-     * @param url     请求地址
-     * @param content 请求内容，自动编码为UTF-8
-     * @return
-     */
+//    /**
+//     * 发送HTTPS POST请求
+//     *
+//     * @param url     请求地址
+//     * @param content 请求内容，自动编码为UTF-8
+//     * @return
+//     */
     public static String postsContent(String url, String content) {
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(new StringEntity(content, CHARSET_UTF8));
