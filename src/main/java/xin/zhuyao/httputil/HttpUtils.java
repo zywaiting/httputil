@@ -1,4 +1,4 @@
-package com.github.zywaiting.httputil;
+package xin.zhuyao.httputil;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;

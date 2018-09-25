@@ -1,4 +1,4 @@
-package com.github.zywaiting.httputil;
+package xin.zhuyao.httputil;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

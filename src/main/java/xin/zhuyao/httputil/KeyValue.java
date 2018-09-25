@@ -1,4 +1,4 @@
-package com.github.zywaiting.httputil;
+package xin.zhuyao.httputil;
 
 /**
  * Created on 2018/9/25.<br>

@@ -1,4 +1,4 @@
-package com.github.zywaiting.httputil;
+package xin.zhuyao.httputil;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
