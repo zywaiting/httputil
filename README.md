@@ -1,6 +1,6 @@
 # httputil
 
-项目引入包
+此项目已被上传maven中央仓库，各位项目直接pom文件配好下面的就可以用了
 ````
 <dependency>
     <groupId>xin.zhuyao.httputil</groupId>
