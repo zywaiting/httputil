@@ -1,69 +1,46 @@
 # httputil
-# easyexcelutil
-#test是测试没什么用,实体类要参考
-EasyExcel 的 github 地址： 
-https://github.com/alibaba/easyexcel
+
+#Httputil.get()
+##get/gets(http/https)
+
+get/gets(String url) 请求路径无参数   
+
+get/gets(String url, String encoding) 请求带编码要求
+
+get/gets(String url, Map<String, String> args) 请求有参数（如：http://baidu.com?x=1&y=2)(map 就是(map.put("x","1");map.put("y","2")))
+
+get/gets(String url,String encoding, Map<String, String> args) 请求带编码要求有参数
+
+get/gets(String url, KeyValue... args)(KeyValue 简单工具对象，用来存放键值对。用法(KeyValue[] keyValues = new KeyValue[]{new KeyValue("x","1")}))
+
+get/gets(String url, String encoding, KeyValue... args)请求带编码要求有参数
+
+##getHeader/getsHeader(http/https)
+
+getHeader/getsHeader(String url, Map<String, String> headers)请求路径无参数有header (比如阿里的 headers.put("Authorization", "APPCODE " + appcode);就可以map.put("Authorization","APPCODE "+appcode))
+
+getHeader/getsHeader(String url, KeyValue... headers) 请求路径无参数有header
+
+getHeader/getsHeader(String url, String encoding, KeyValue... headers)请求带编码要求有header
+
+getHeader/getsHeader(String url, Map<String, String> headers, Map<String, String> args)请求路径有header有参数((headers):map1.put("x","1");(args):map2.put("y","2"))
+
+getHeader/getsHeader(String url,String encoding, Map<String, String> headers, Map<String, String> args)请求带编码要求有header有参数
+
+getHeader/getsHeader(String url,String encoding, KeyValue[] headers, KeyValue... args)请求路径有header有参数
+
+getHeader/getsHeader(String url, String encoding, KeyValue[] headers, KeyValue... args)请求带编码要求有header有参数
 
 
-##object 实体类映射，继承 BaseRowModel 类
-###读取 Excel(多个 sheet)
-
-####MultipartFile  
-readExcel(MultipartFile excel, BaseRowModel object)
-####File
-readExcel(File excel, BaseRowModel object)
-####fileName 文件名字 InputStream 输入流
-readExcel(String fileName, InputStream inputStream, BaseRowModel object)
-
-##读取某个 sheet 的 Excel
-###XLS 类型文件 sheet 序号为顺序，第一个 sheet 序号为 1
-###XLSX 类型 sheet 序号顺序为倒序，即最后一个 sheet 序号为 1
-
-readExcel(MultipartFile excel, BaseRowModel object, int sheetNo)
-
-readExcel(File excel, BaseRowModel object, int sheetNo)
-
-readExcel(String fileName, InputStream inputStream, int sheetNo)
+##post/posts同上
 
 
-##导出 Excel ：一个或多个 sheet，带表头
-fileName  导出的文件名
-writeExcelWithSheets(HttpServletResponse response, String fileName)
-
-````
-/**
-     * 导出 Excel（一个 sheet）
-     */
-    @RequestMapping(value = "writeExcel", method = RequestMethod.GET)
-    public void writeExcel(HttpServletResponse response) throws IOException {
-        List<ExportInfo> list = getList();
-        String fileName = "一个 Excel 文件";
-        String sheetName = "第一个 sheet";
-
-        EasyExcelUtil.writeExcelWithSheets(response, fileName)
-                .write(list, sheetName, new ExportInfo());
-    }
-
-````
-
-````
-/**
-     * 导出 Excel（多个 sheet）
-     */
-    @RequestMapping(value = "writeExcelWithSheets", method = RequestMethod.GET)
-    public void writeExcelWithSheets(HttpServletResponse response) throws IOException {
-        List<ExportInfo> list = getList();
-        String fileName = "一个 Excel 文件";
-        String sheetName1 = "第一个 sheet";
-        String sheetName2 = "第二个 sheet";
-        String sheetName3 = "第三个 sheet";
-
-        EasyExcelUtil.writeExcelWithSheets(response, fileName)
-                .write(list, sheetName1, new ExportInfo())
-                .write(list, sheetName2, new ExportInfo())
-                .write(list, sheetName3, new ExportInfo())
-                .finish();
-    }
-````
+##postHeader/postsHeader同上
 
 
+##postContent/postsContent同上
+
+postContent/postsContent(String url, String content)路径加内容
+
+
+post/posts(String url, HttpEntity httpEntity)路径加内容
