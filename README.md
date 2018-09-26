@@ -1,5 +1,15 @@
 # httputil
 
+项目引入包
+````
+<dependency>
+    <groupId>xin.zhuyao.httputil</groupId>
+    <artifactId>httputil</artifactId>
+    <version>0.0.1</version>
+</dependency>
+
+````
+
 #Httputil.get()
 ##get/gets(http/https)
 
